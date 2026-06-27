@@ -1,0 +1,6 @@
+{
+  "name": "GlobalChat Earn",
+  "description": "Global platform for language learning, cultural exchange, and earning through educational conversations.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

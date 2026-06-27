@@ -1,0 +1,76 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile document",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "fullName": { "type": "string" },
+        "role": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "country": { "type": "string" },
+        "city": { "type": "string" },
+        "phone": { "type": "string" },
+        "isVerified": { "type": "boolean" },
+        "isPremium": { "type": "boolean" },
+        "walletBalance": { "type": "number" },
+        "trustScore": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "twoFactorEnabled": { "type": "boolean" }
+      },
+      "required": ["id", "email", "role"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Chat message",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderId": { "type": "string" },
+        "senderName": { "type": "string" },
+        "senderRole": { "type": "string" },
+        "recipientId": { "type": "string" },
+        "type": { "type": "string" },
+        "content": { "type": "string" },
+        "translatedContent": { "type": "object" },
+        "timestamp": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "flaggedForReview": { "type": "boolean" },
+        "isFlaggedByAI": { "type": "boolean" }
+      },
+      "required": ["id", "senderId", "recipientId"]
+    },
+    "AdminSettings": {
+      "title": "Admin Settings",
+      "description": "Platform settings for admin",
+      "type": "object",
+      "properties": {
+        "commissionPercentage": { "type": "number" },
+        "mpesaPaybill": { "type": "string" },
+        "mpesaTill": { "type": "string" },
+        "mpesaPhone": { "type": "string" },
+        "airtelMoney": { "type": "string" },
+        "stripeAccount": { "type": "string" },
+        "paypalEmail": { "type": "string" },
+        "bankDetails": { "type": "string" }
+      },
+      "required": ["commissionPercentage"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "Stores user profiles"
+    },
+    "messages/{messageId}": {
+      "schema": { "$ref": "#/entities/Message" },
+      "description": "Stores chat messages"
+    },
+    "settings/{settingId}": {
+      "schema": { "$ref": "#/entities/AdminSettings" },
+      "description": "Stores admin settings"
+    }
+  }
+}

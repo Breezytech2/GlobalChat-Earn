@@ -1,0 +1,79 @@
+rules_version = '2';
+
+// GlobalChat Earn Firestore Rules
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function isValidUser(data) {
+      return data.keys().hasAll(['id', 'email', 'role'])
+        && data.id is string && data.id.size() <= 128
+        && data.email is string && data.email.size() <= 256
+        && data.role is string && data.role.size() <= 50;
+    }
+
+    match /users/{userId} {
+      allow read: if isSignedIn() && request.auth.uid == userId;
+      allow create: if isSignedIn() 
+                    && isValidId(userId)
+                    && request.auth.uid == userId
+                    && incoming().id == userId
+                    && isValidUser(incoming());
+      
+      allow update: if isSignedIn()
+                    && request.auth.uid == userId
+                    && existing().id == userId
+                    && incoming().id == userId
+                    && incoming().email == existing().email
+                    && isValidUser(incoming());
+    }
+
+    function isValidMessage(data) {
+      return data.keys().hasAll(['id', 'senderId', 'recipientId'])
+        && data.id is string && data.id.size() <= 128
+        && data.senderId is string && data.senderId.size() <= 128
+        && data.recipientId is string && data.recipientId.size() <= 128;
+    }
+
+    match /messages/{messageId} {
+      allow read: if isSignedIn() 
+                  && (existing().senderId == request.auth.uid || existing().recipientId == request.auth.uid);
+      
+      allow create: if isSignedIn()
+                    && isValidId(messageId)
+                    && incoming().senderId == request.auth.uid
+                    && isValidMessage(incoming());
+      
+      allow update: if isSignedIn()
+                    && existing().senderId == incoming().senderId
+                    && existing().recipientId == incoming().recipientId
+                    && (existing().senderId == request.auth.uid || existing().recipientId == request.auth.uid)
+                    && isValidMessage(incoming());
+    }
+    function isAdmin() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == "admin";
+    }
+
+    match /settings/{settingId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
