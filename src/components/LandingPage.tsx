@@ -2,8 +2,6 @@ import React from "react";
 import { useApp } from "../context/AppContext";
 import {
   Globe,
-  Sun,
-  Moon,
   Video,
   MessageSquare,
   Globe2,
@@ -11,67 +9,39 @@ import {
   Shield,
   ChevronRight,
 } from "lucide-react";
-import regeneratedLogo from "../assets/images/regenerated_image_1782651827792.png";
 
 export const LandingPage: React.FC = () => {
-  const { setActiveTab, setIsAuthModalOpen } = useApp();
-  const [theme, setTheme] = React.useState<"dark" | "light">("dark");
-  const isDark = theme === "dark";
+  const { setActiveTab } = useApp();
 
   return (
-    <div
-      className={`min-h-screen font-sans overflow-x-hidden ${isDark ? "bg-black text-white selection:bg-zinc-800" : "bg-zinc-50 text-zinc-900 selection:bg-zinc-200"}`}
-    >
+    <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-zinc-800">
       {/* Navigation */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b ${isDark ? "bg-black/80 border-white/5" : "bg-white/80 border-black/5"}`}
-      >
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-white/5">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-12">
             <div className="flex items-center gap-2 cursor-pointer">
-              <div className="w-8 h-8 rounded-lg flex items-center justify-center overflow-hidden">
-                <img
-                  src={regeneratedLogo}
-                  alt="Logo"
-                  className="w-full h-full object-cover"
-                />
+              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                <Globe className="w-5 h-5 text-black" />
               </div>
               <span className="text-xl font-bold tracking-tight">
                 GlobalChat
               </span>
             </div>
 
-            <div
-              className={`hidden md:flex items-center gap-6 text-sm font-medium ${isDark ? "text-zinc-400" : "text-zinc-600"}`}
-            >
-              <a
-                href="#"
-                className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-black"}`}
-              >
+            <div className="hidden md:flex items-center gap-6 text-sm font-medium text-zinc-400">
+              <a href="#" className="hover:text-white transition-colors">
                 Tutors
               </a>
-              <a
-                href="#"
-                className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-black"}`}
-              >
+              <a href="#" className="hover:text-white transition-colors">
                 Students
               </a>
-              <a
-                href="#"
-                className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-black"}`}
-              >
+              <a href="#" className="hover:text-white transition-colors">
                 Business
               </a>
-              <a
-                href="#"
-                className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-black"}`}
-              >
+              <a href="#" className="hover:text-white transition-colors">
                 Learn
               </a>
-              <a
-                href="#"
-                className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-black"}`}
-              >
+              <a href="#" className="hover:text-white transition-colors">
                 Pricing
               </a>
             </div>
@@ -79,30 +49,14 @@ export const LandingPage: React.FC = () => {
 
           <div className="flex items-center gap-4">
             <button
-              onClick={() => setTheme(isDark ? "light" : "dark")}
-              className={`p-2 rounded-lg transition-colors ${isDark ? "hover:bg-zinc-800 text-zinc-400 hover:text-white" : "hover:bg-zinc-200 text-zinc-600 hover:text-black"}`}
-            >
-              {isDark ? (
-                <Sun className="w-5 h-5" />
-              ) : (
-                <Moon className="w-5 h-5" />
-              )}
-            </button>
-            <button
-              onClick={() => {
-                setActiveTab("discovery");
-                setIsAuthModalOpen(true);
-              }}
-              className={`text-sm font-medium transition-colors hidden sm:block ${isDark ? "text-zinc-300 hover:text-white" : "text-zinc-600 hover:text-black"}`}
+              onClick={() => setActiveTab("discovery")}
+              className="text-sm font-medium text-zinc-300 hover:text-white transition-colors hidden sm:block"
             >
               Log in
             </button>
             <button
-              onClick={() => {
-                setActiveTab("discovery");
-                setIsAuthModalOpen(true);
-              }}
-              className={`px-5 py-2.5 text-sm font-bold rounded-lg transition-colors ${isDark ? "bg-white text-black hover:bg-zinc-200" : "bg-black text-white hover:bg-zinc-800"}`}
+              onClick={() => setActiveTab("discovery")}
+              className="px-5 py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors"
             >
               Start now
             </button>
@@ -137,7 +91,7 @@ export const LandingPage: React.FC = () => {
             </div>
           </div>
           <div className="relative h-[500px] rounded-2xl border border-white/10 overflow-hidden shadow-2xl shadow-white/5 bg-zinc-950 flex items-center justify-center">
-            <div className="absolute inset-0 bg-[url('/172403491980562162.jpg')] bg-cover bg-center opacity-90"></div>
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
 
             <div className="relative z-10 p-8 text-center max-w-md">
@@ -183,7 +137,7 @@ export const LandingPage: React.FC = () => {
             </div>
           </div>
           <div className="relative h-[500px] rounded-2xl border border-white/10 overflow-hidden shadow-2xl shadow-white/5 bg-zinc-950 flex items-center justify-center">
-            <div className="absolute inset-0 bg-[url('/African_Inspirations_by_Humble_Homage.jpg')] bg-cover bg-center opacity-90"></div>
+            <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40"></div>
             <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
 
             <div className="relative z-10 p-8 text-center max-w-md">
@@ -220,7 +174,7 @@ export const LandingPage: React.FC = () => {
             {/* Feature 1 */}
             <div className="group rounded-2xl bg-black border border-white/5 overflow-hidden hover:border-white/20 transition-all cursor-pointer flex flex-col">
               <div className="h-48 bg-zinc-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/download_2026.jpg')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=600&auto=format&fit=crop')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
@@ -245,7 +199,7 @@ export const LandingPage: React.FC = () => {
             {/* Feature 2 */}
             <div className="group rounded-2xl bg-black border border-white/5 overflow-hidden hover:border-white/20 transition-all cursor-pointer flex flex-col">
               <div className="h-48 bg-zinc-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/Best_15_Cultural_Festivals_Around_the_World_1.jpg')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=600&auto=format&fit=crop')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
@@ -268,7 +222,7 @@ export const LandingPage: React.FC = () => {
             {/* Feature 3 */}
             <div className="group rounded-2xl bg-black border border-white/5 overflow-hidden hover:border-white/20 transition-all cursor-pointer flex flex-col">
               <div className="h-48 bg-zinc-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/Cultural_Unity_Celebration.jpg')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=600&auto=format&fit=crop')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
@@ -301,8 +255,7 @@ export const LandingPage: React.FC = () => {
               Expand your horizons globally
             </h2>
             <p className="text-zinc-400 text-lg max-w-2xl">
-              Discover how connecting with global tutors can transform your
-              understanding of different cultures and perspectives.
+              Discover how connecting with global tutors can transform your understanding of different cultures and perspectives.
             </p>
           </div>
 
@@ -310,18 +263,19 @@ export const LandingPage: React.FC = () => {
             {/* Feature 4 */}
             <div className="group rounded-2xl bg-black border border-white/5 overflow-hidden hover:border-white/20 transition-all cursor-pointer flex flex-col">
               <div className="h-48 bg-zinc-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/Best_7_ways_to_experience_local_culture_while_traveling.jpg')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=600&auto=format&fit=crop')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center">
                     <Globe className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold">Immersive Experiences</h3>
+                  <h3 className="text-xl font-bold">
+                    Immersive Experiences
+                  </h3>
                 </div>
                 <p className="text-zinc-400 text-sm mb-6 flex-1">
-                  Dive deep into the culture with immersive sessions that bring
-                  you closer to native speakers.
+                  Dive deep into the culture with immersive sessions that bring you closer to native speakers.
                 </p>
                 <div className="flex items-center text-sm font-bold hover:text-zinc-300">
                   See case study <ChevronRight className="w-4 h-4 ml-1" />
@@ -332,7 +286,7 @@ export const LandingPage: React.FC = () => {
             {/* Feature 5 */}
             <div className="group rounded-2xl bg-black border border-white/5 overflow-hidden hover:border-white/20 transition-all cursor-pointer flex flex-col">
               <div className="h-48 bg-zinc-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/Best_15_Cultural_Festivals_Around_the_World.jpg')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=600&auto=format&fit=crop')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
@@ -342,8 +296,7 @@ export const LandingPage: React.FC = () => {
                   <h3 className="text-xl font-bold">Safe and Secure</h3>
                 </div>
                 <p className="text-zinc-400 text-sm mb-6 flex-1">
-                  Connect confidently with verified tutors in a moderated and
-                  secure platform designed for your safety.
+                  Connect confidently with verified tutors in a moderated and secure platform designed for your safety.
                 </p>
                 <div className="flex items-center text-sm font-bold hover:text-zinc-300">
                   See case study <ChevronRight className="w-4 h-4 ml-1" />
@@ -354,18 +307,19 @@ export const LandingPage: React.FC = () => {
             {/* Feature 6 */}
             <div className="group rounded-2xl bg-black border border-white/5 overflow-hidden hover:border-white/20 transition-all cursor-pointer flex flex-col">
               <div className="h-48 bg-zinc-900 relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/335658978506167940.jpg')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=600&auto=format&fit=crop')] bg-cover bg-center opacity-50 group-hover:opacity-70 transition-opacity"></div>
               </div>
               <div className="p-6 flex-1 flex flex-col">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center">
                     <MessageSquare className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold">Community Driven</h3>
+                  <h3 className="text-xl font-bold">
+                    Community Driven
+                  </h3>
                 </div>
                 <p className="text-zinc-400 text-sm mb-6 flex-1">
-                  Join a vibrant community of language learners to practice,
-                  share insights, and grow together.
+                  Join a vibrant community of language learners to practice, share insights, and grow together.
                 </p>
                 <div className="flex items-center text-sm font-bold hover:text-zinc-300">
                   See case study <ChevronRight className="w-4 h-4 ml-1" />
@@ -407,22 +361,13 @@ export const LandingPage: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-6 text-sm text-zinc-500">
-            <a
-              href="#"
-              className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-black"}`}
-            >
+            <a href="#" className="hover:text-white transition-colors">
               Privacy Policy
             </a>
-            <a
-              href="#"
-              className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-black"}`}
-            >
+            <a href="#" className="hover:text-white transition-colors">
               Terms of Service
             </a>
-            <a
-              href="#"
-              className={`transition-colors ${isDark ? "hover:text-white" : "hover:text-black"}`}
-            >
+            <a href="#" className="hover:text-white transition-colors">
               Cookie Policy
             </a>
           </div>

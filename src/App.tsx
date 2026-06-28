@@ -19,6 +19,9 @@ import { ChatModal } from "./components/ChatModal";
 import { LiveCallModal } from "./components/LiveCallModal";
 import { AuthModal, PremiumModal } from "./components/Modals";
 import { LandingPage } from "./components/LandingPage";
+import { StoreView } from "./components/StoreView";
+
+import { SettingsView } from "./components/SettingsView";
 
 const MainContent: React.FC = () => {
   const { activeTab } = useApp();
@@ -31,6 +34,8 @@ const MainContent: React.FC = () => {
       {activeTab === "earnings" && <EarningsView />}
       {activeTab === "teacher_dashboard" && <TeacherDashboard />}
       {activeTab === "admin" && <AdminDashboard />}
+      {activeTab === "settings" && <SettingsView />}
+      {activeTab === "store" && <StoreView />}
     </>
   );
 };

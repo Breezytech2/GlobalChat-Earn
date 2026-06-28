@@ -216,3 +216,13 @@ export interface PlatformAnalytics {
   topLanguages: { language: string; sessions: number }[];
   retentionRate: string;
 }
+
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  externalUrl: string;
+  createdAt: number;
+}
