@@ -44,11 +44,11 @@ export const DiscoveryFeed: React.FC = () => {
   const countryList = ["All", "Kenya", "Japan", "Brazil", "Germany", "South Korea", "France"];
 
   return (
-    <div className="flex-1 flex overflow-hidden w-full h-full text-white bg-[#050B18]">
+    <div className="flex-1 flex overflow-hidden w-full h-full text-white bg-[black]">
       {/* Left Panel: Discovery Sidebar */}
-      <aside className="w-72 bg-[#081121] p-6 border-r border-white/5 flex flex-col gap-6 overflow-y-auto hidden md:flex flex-shrink-0 select-none">
+      <aside className="w-72 bg-[#09090b] p-6 border-r border-white/5 flex flex-col gap-6 overflow-y-auto hidden md:flex flex-shrink-0 select-none">
         <div>
-          <h3 className="text-xs uppercase tracking-widest text-[#D4AF37] font-bold mb-4 flex items-center gap-1.5">
+          <h3 className="text-xs uppercase tracking-widest text-[white] font-bold mb-4 flex items-center gap-1.5">
             🌍 Country Explorer
           </h3>
           <div className="space-y-2.5">
@@ -56,7 +56,7 @@ export const DiscoveryFeed: React.FC = () => {
               <div 
                 key={c.code}
                 onClick={() => { setSelectedCountryFilter(c.name); }}
-                className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${selectedCountryFilter === c.name ? "bg-[#D4AF37]/20 border-[#D4AF37]" : "bg-white/5 border-white/10 hover:bg-[#D4AF37]/10 hover:border-[#D4AF37]/30"}`}
+                className={`p-3 rounded-xl border flex items-center justify-between cursor-pointer transition-all ${selectedCountryFilter === c.name ? "bg-[white]/20 border-[white]" : "bg-white/5 border-white/10 hover:bg-[white]/10 hover:border-[white]/30"}`}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-2xl">{c.flagEmoji}</span>
@@ -67,7 +67,7 @@ export const DiscoveryFeed: React.FC = () => {
             ))}
             <button 
               onClick={() => setActiveTab("explorer")}
-              className="w-full text-center text-xs text-[#D4AF37] hover:underline pt-1 block font-semibold"
+              className="w-full text-center text-xs text-[white] hover:underline pt-1 block font-semibold"
             >
               Open Interactive World Map &rarr;
             </button>
@@ -76,7 +76,7 @@ export const DiscoveryFeed: React.FC = () => {
 
         {/* Filters */}
         <div>
-          <h3 className="text-xs uppercase tracking-widest text-[#D4AF37] font-bold mb-4">🔍 Precision Filters</h3>
+          <h3 className="text-xs uppercase tracking-widest text-[white] font-bold mb-4">🔍 Precision Filters</h3>
           <div className="space-y-4 text-xs">
             {/* Search */}
             <div className="relative">
@@ -86,7 +86,7 @@ export const DiscoveryFeed: React.FC = () => {
                 placeholder="Search tutor, culture..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-white/5 border border-white/10 rounded-xl py-2 pl-9 pr-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[#D4AF37]"
+                className="w-full bg-white/5 border border-white/10 rounded-xl py-2 pl-9 pr-3 text-white placeholder:text-white/30 focus:outline-none focus:border-[white]"
               />
             </div>
 
@@ -96,7 +96,7 @@ export const DiscoveryFeed: React.FC = () => {
               <select 
                 value={filterLanguage}
                 onChange={(e) => setFilterLanguage(e.target.value)}
-                className="bg-[#0A1629] border border-white/10 rounded-lg p-2 text-sm text-white/80 focus:outline-none focus:border-[#D4AF37]"
+                className="bg-[#18181b] border border-white/10 rounded-lg p-2 text-sm text-white/80 focus:outline-none focus:border-[white]"
               >
                 {languagesList.map(l => <option key={l} value={l}>{l}</option>)}
               </select>
@@ -108,7 +108,7 @@ export const DiscoveryFeed: React.FC = () => {
               <select 
                 value={selectedCountryFilter}
                 onChange={(e) => setSelectedCountryFilter(e.target.value)}
-                className="bg-[#0A1629] border border-white/10 rounded-lg p-2 text-sm text-white/80 focus:outline-none focus:border-[#D4AF37]"
+                className="bg-[#18181b] border border-white/10 rounded-lg p-2 text-sm text-white/80 focus:outline-none focus:border-[white]"
               >
                 {countryList.map(c => <option key={c} value={c}>{c}</option>)}
               </select>
@@ -118,7 +118,7 @@ export const DiscoveryFeed: React.FC = () => {
             <div className="flex flex-col gap-1.5">
               <div className="flex justify-between text-[10px] text-white/40 uppercase font-bold">
                 <span>Max Video Rate</span>
-                <span className="text-[#D4AF37]">${maxPriceFilter}/hr</span>
+                <span className="text-[white]">${maxPriceFilter}/hr</span>
               </div>
               <input 
                 type="range" 
@@ -126,7 +126,7 @@ export const DiscoveryFeed: React.FC = () => {
                 max="50" 
                 value={maxPriceFilter}
                 onChange={(e) => setMaxPriceFilter(Number(e.target.value))}
-                className="accent-[#D4AF37] w-full" 
+                className="accent-[white] w-full" 
               />
             </div>
 
@@ -134,7 +134,7 @@ export const DiscoveryFeed: React.FC = () => {
             <div className="flex flex-col gap-1.5">
               <div className="flex justify-between text-[10px] text-white/40 uppercase font-bold">
                 <span>Min Trust Score</span>
-                <span className="text-[#D4AF37]">{minTrustScore}%</span>
+                <span className="text-[white]">{minTrustScore}%</span>
               </div>
               <input 
                 type="range" 
@@ -142,15 +142,15 @@ export const DiscoveryFeed: React.FC = () => {
                 max="100" 
                 value={minTrustScore}
                 onChange={(e) => setMinTrustScore(Number(e.target.value))}
-                className="accent-[#D4AF37] w-full" 
+                className="accent-[white] w-full" 
               />
             </div>
           </div>
         </div>
 
         {/* Premium Promo */}
-        <div className="mt-auto bg-gradient-to-br from-[#D4AF37]/20 to-[#0A1629] p-4 rounded-2xl border border-[#D4AF37]/30">
-          <p className="text-xs font-bold text-[#D4AF37] uppercase mb-1 flex items-center gap-1">
+        <div className="mt-auto bg-gradient-to-br from-[white]/20 to-[#18181b] p-4 rounded-2xl border border-[white]/30">
+          <p className="text-xs font-bold text-[white] uppercase mb-1 flex items-center gap-1">
             <Sparkles className="w-3 h-3" /> Earning Guarantee
           </p>
           <p className="text-xs mb-3 text-white/90 leading-relaxed">
@@ -158,7 +158,7 @@ export const DiscoveryFeed: React.FC = () => {
           </p>
           <button 
             onClick={() => setIsPremiumModalOpen(true)}
-            className="w-full py-2 bg-[#D4AF37] text-[#050B18] rounded-lg text-xs font-bold shadow-lg shadow-[#D4AF37]/20 hover:opacity-90 active:scale-95 transition-all"
+            className="w-full py-2 bg-[white] text-[black] rounded-lg text-xs font-bold shadow-lg shadow-[white]/20 hover:opacity-90 active:scale-95 transition-all"
           >
             Explore Premium
           </button>
@@ -166,7 +166,7 @@ export const DiscoveryFeed: React.FC = () => {
       </aside>
 
       {/* Central Panel: Featured Teacher & Feed */}
-      <section className="flex-1 bg-[#0A1629] p-6 md:p-8 overflow-y-auto h-full min-w-0">
+      <section className="flex-1 bg-[#18181b] p-6 md:p-8 overflow-y-auto h-full min-w-0">
         <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
           <div>
             <h2 className="text-2xl md:text-3xl font-light tracking-tight">
@@ -179,7 +179,7 @@ export const DiscoveryFeed: React.FC = () => {
           <div className="flex items-center gap-2">
             <button 
               onClick={() => { setFilterLanguage("All"); setSelectedCountryFilter("All"); setSearchQuery(""); }}
-              className="text-xs bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 text-[#D4AF37] font-medium"
+              className="text-xs bg-white/5 hover:bg-white/10 px-3 py-1.5 rounded-lg border border-white/10 text-[white] font-medium"
             >
               Reset Filters
             </button>
@@ -193,11 +193,11 @@ export const DiscoveryFeed: React.FC = () => {
               className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:scale-105 transition-transform duration-700"
               style={{ backgroundImage: `url('${featuredTeacher.avatarUrl}')` }}
             ></div>
-            <div className="absolute inset-0 bg-gradient-to-t from-[#050B18] via-[#050B18]/60 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[black] via-[black]/60 to-transparent"></div>
             
             {/* Top Badges */}
             <div className="absolute top-6 left-6 flex flex-wrap gap-2">
-              <span className="bg-[#D4AF37] text-[#050B18] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-lg shadow-[#D4AF37]/30">
+              <span className="bg-[white] text-[black] px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-lg shadow-[white]/30">
                 <Award className="w-3 h-3" /> {featuredTeacher.level}
               </span>
               <span className="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider border border-white/20 text-green-300 flex items-center gap-1">
@@ -213,7 +213,7 @@ export const DiscoveryFeed: React.FC = () => {
                 onClick={(e) => { e.stopPropagation(); toggleFavourite(featuredTeacher.id); }}
                 className="w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/20 flex items-center justify-center hover:bg-black/70 transition-all"
               >
-                <Star className={`w-5 h-5 ${favourites.includes(featuredTeacher.id) ? "fill-[#D4AF37] text-[#D4AF37]" : "text-white"}`} />
+                <Star className={`w-5 h-5 ${favourites.includes(featuredTeacher.id) ? "fill-[white] text-[white]" : "text-white"}`} />
               </button>
             </div>
 
@@ -239,7 +239,7 @@ export const DiscoveryFeed: React.FC = () => {
                     <div className="w-px h-7 bg-white/15"></div>
                     <div className="flex flex-col">
                       <span className="text-white/40 uppercase text-[10px] tracking-widest font-bold">Trust Score</span>
-                      <span className="font-bold text-[#D4AF37]">99.8%</span>
+                      <span className="font-bold text-[white]">99.8%</span>
                     </div>
                     <div className="w-px h-7 bg-white/15"></div>
                     <div className="flex flex-col">
@@ -255,7 +255,7 @@ export const DiscoveryFeed: React.FC = () => {
                 <div className="flex lg:flex-col gap-3 flex-wrap">
                   <div className="bg-white/10 backdrop-blur-xl border border-white/20 px-4 py-2.5 rounded-2xl flex items-center justify-between gap-4">
                     <span className="text-[11px] text-white/60 uppercase font-bold tracking-tight">Video Rate</span>
-                    <span className="text-xl font-bold text-[#D4AF37]">${featuredTeacher.hourlyRateVideo}.00 <span className="text-[10px] text-white/40">/hr</span></span>
+                    <span className="text-xl font-bold text-[white]">${featuredTeacher.hourlyRateVideo}.00 <span className="text-[10px] text-white/40">/hr</span></span>
                   </div>
                   <div className="flex gap-2">
                     <button 
@@ -266,7 +266,7 @@ export const DiscoveryFeed: React.FC = () => {
                     </button>
                     <button 
                       onClick={() => bookSession(featuredTeacher, "video_call")}
-                      className="flex-1 px-6 py-3.5 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] font-bold rounded-2xl shadow-xl active:scale-95 transition-all text-xs flex items-center justify-center gap-1.5"
+                      className="flex-1 px-6 py-3.5 bg-[white] hover:bg-[#e4e4e7] text-[black] font-bold rounded-2xl shadow-xl active:scale-95 transition-all text-xs flex items-center justify-center gap-1.5"
                     >
                       <Video className="w-4 h-4" /> Book Call
                     </button>
@@ -284,11 +284,11 @@ export const DiscoveryFeed: React.FC = () => {
         </div>
 
         {filteredTeachers.length === 0 ? (
-          <div className="text-center py-16 bg-[#081121] rounded-2xl border border-white/5">
+          <div className="text-center py-16 bg-[#09090b] rounded-2xl border border-white/5">
             <p className="text-lg text-white/60 mb-2">No teachers matched your exact criteria.</p>
             <button 
               onClick={() => { setFilterLanguage("All"); setSelectedCountryFilter("All"); setSearchQuery(""); }}
-              className="text-xs px-4 py-2 bg-[#D4AF37] text-[#050B18] font-bold rounded-xl"
+              className="text-xs px-4 py-2 bg-[white] text-[black] font-bold rounded-xl"
             >
               Clear Filters
             </button>
@@ -312,24 +312,24 @@ export const DiscoveryFeed: React.FC = () => {
       </section>
 
       {/* Right Panel: Status & Activity */}
-      <aside className="w-80 bg-[#081121] p-6 border-l border-white/5 flex flex-col gap-6 overflow-y-auto hidden lg:flex flex-shrink-0 select-none">
+      <aside className="w-80 bg-[#09090b] p-6 border-l border-white/5 flex flex-col gap-6 overflow-y-auto hidden lg:flex flex-shrink-0 select-none">
         {/* Wallet Balance */}
-        <div className="bg-[#0A1629] p-6 rounded-[24px] border border-white/10 shadow-xl">
+        <div className="bg-[#18181b] p-6 rounded-[24px] border border-white/10 shadow-xl">
           <div className="flex items-center justify-between mb-2">
-            <h4 className="text-[11px] font-bold text-[#D4AF37] uppercase tracking-widest">Student Wallet</h4>
+            <h4 className="text-[11px] font-bold text-[white] uppercase tracking-widest">Student Wallet</h4>
             <span className="text-[10px] bg-green-500/20 text-green-400 px-2 py-0.5 rounded-full font-mono border border-green-500/30">
               ● ACTIVE
             </span>
           </div>
           <div className="flex items-center justify-between mb-4">
             <span className="text-3xl font-bold tracking-tight">${currentUser.walletBalance.toFixed(2)}</span>
-            <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-[#D4AF37]">
+            <div className="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center text-[white]">
               <DollarSign className="w-6 h-6" />
             </div>
           </div>
           <button 
             onClick={() => setActiveTab("earnings")}
-            className="w-full py-2.5 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] rounded-xl text-xs font-bold transition-all shadow-md"
+            className="w-full py-2.5 bg-[white] hover:bg-[#e4e4e7] text-[black] rounded-xl text-xs font-bold transition-all shadow-md"
           >
             + Add Funds via Stripe
           </button>
@@ -337,7 +337,7 @@ export const DiscoveryFeed: React.FC = () => {
 
         {/* Quick Pricing Protocol Box */}
         <div className="bg-white/[0.03] p-4 rounded-[20px] border border-white/10 text-xs space-y-2.5">
-          <p className="text-[10px] uppercase tracking-wider text-[#D4AF37] font-bold">Standard Platform Rates</p>
+          <p className="text-[10px] uppercase tracking-wider text-[white] font-bold">Standard Platform Rates</p>
           <div className="flex justify-between items-center py-1 border-b border-white/5">
             <span className="text-white/70 flex items-center gap-1.5"><MessageSquare className="w-3.5 h-3.5 text-blue-400" /> Text Chat</span>
             <span className="font-semibold">$2 / 30 mins</span>
@@ -359,7 +359,7 @@ export const DiscoveryFeed: React.FC = () => {
         <div>
           <div className="flex items-center justify-between mb-3">
             <h4 className="text-[11px] font-bold text-white/80 uppercase tracking-widest">Recent Sessions</h4>
-            <span onClick={() => setActiveTab("sessions")} className="text-[10px] text-[#D4AF37] font-bold cursor-pointer hover:underline">
+            <span onClick={() => setActiveTab("sessions")} className="text-[10px] text-[white] font-bold cursor-pointer hover:underline">
               View All
             </span>
           </div>
@@ -417,7 +417,7 @@ const TeacherCard: React.FC<TeacherCardProps> = ({ teacher, isFav, onFav, onChat
   return (
     <div 
       onClick={onDetail}
-      className="bg-[#081121] rounded-[24px] border border-white/10 p-5 hover:border-[#D4AF37]/50 hover:shadow-xl transition-all flex flex-col justify-between cursor-pointer group select-none"
+      className="bg-[#09090b] rounded-[24px] border border-white/10 p-5 hover:border-[white]/50 hover:shadow-xl transition-all flex flex-col justify-between cursor-pointer group select-none"
     >
       <div>
         {/* Card Header */}
@@ -425,12 +425,12 @@ const TeacherCard: React.FC<TeacherCardProps> = ({ teacher, isFav, onFav, onChat
           <div className="relative">
             <img src={teacher.avatarUrl} alt={teacher.fullName} className="w-14 h-14 rounded-2xl object-cover border border-white/10 group-hover:scale-105 transition-transform" />
             {teacher.isOnline && (
-              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-[#081121]" title="Online Now"></div>
+              <div className="absolute -bottom-1 -right-1 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-[#09090b]" title="Online Now"></div>
             )}
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-1.5">
-              <h4 className="font-bold text-base truncate text-white group-hover:text-[#D4AF37] transition-colors">{teacher.fullName}</h4>
+              <h4 className="font-bold text-base truncate text-white group-hover:text-[white] transition-colors">{teacher.fullName}</h4>
               <span className="text-base">{teacher.countryFlag}</span>
             </div>
             <p className="text-xs text-white/60 truncate">{teacher.city}, {teacher.country}</p>
@@ -442,13 +442,13 @@ const TeacherCard: React.FC<TeacherCardProps> = ({ teacher, isFav, onFav, onChat
             onClick={(e) => { e.stopPropagation(); onFav(); }}
             className="p-2 bg-white/5 hover:bg-white/10 rounded-xl transition-colors"
           >
-            <Star className={`w-4 h-4 ${isFav ? "fill-[#D4AF37] text-[#D4AF37]" : "text-white/40"}`} />
+            <Star className={`w-4 h-4 ${isFav ? "fill-[white] text-[white]" : "text-white/40"}`} />
           </button>
         </div>
 
         {/* Badges */}
         <div className="flex flex-wrap gap-1.5 mb-3">
-          <span className="text-[10px] bg-[#D4AF37]/15 text-[#D4AF37] px-2 py-0.5 rounded-md font-semibold border border-[#D4AF37]/30">
+          <span className="text-[10px] bg-[white]/15 text-[white] px-2 py-0.5 rounded-md font-semibold border border-[white]/30">
             {teacher.level}
           </span>
           <span className="text-[10px] bg-green-500/15 text-green-300 px-2 py-0.5 rounded-md font-medium border border-green-500/20">
@@ -469,7 +469,7 @@ const TeacherCard: React.FC<TeacherCardProps> = ({ teacher, isFav, onFav, onChat
       <div className="pt-3 border-t border-white/5 space-y-3" onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between text-xs">
           <span className="text-white/40">Text Chat / Video Rate:</span>
-          <span className="font-bold text-[#D4AF37]">${teacher.halfHourRateChat}/30m • ${teacher.hourlyRateVideo}/hr</span>
+          <span className="font-bold text-[white]">${teacher.halfHourRateChat}/30m • ${teacher.hourlyRateVideo}/hr</span>
         </div>
         <div className="grid grid-cols-3 gap-2">
           <button 
@@ -486,7 +486,7 @@ const TeacherCard: React.FC<TeacherCardProps> = ({ teacher, isFav, onFav, onChat
           </button>
           <button 
             onClick={onBook}
-            className="py-2 px-2 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center"
+            className="py-2 px-2 bg-[white] hover:bg-[#e4e4e7] text-[black] rounded-xl text-xs font-bold transition-all shadow-md flex items-center justify-center"
           >
             Book
           </button>

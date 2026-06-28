@@ -52,7 +52,7 @@ export const LiveCallModal: React.FC = () => {
 
   return (
     <div className={`fixed inset-0 z-50 flex items-center justify-center ${isPiP ? "pointer-events-none justify-end items-end p-8" : "bg-black/90 backdrop-blur-xl p-4"} select-none`}>
-      <div className={`relative ${isPiP ? "w-80 h-48 pointer-events-auto shadow-2xl border-2 border-[#D4AF37]" : "w-full max-w-5xl h-[720px] max-h-[92vh]"} bg-[#050B18] text-white rounded-[32px] border border-white/10 overflow-hidden flex flex-col transition-all duration-300`}>
+      <div className={`relative ${isPiP ? "w-80 h-48 pointer-events-auto shadow-2xl border-2 border-[white]" : "w-full max-w-5xl h-[720px] max-h-[92vh]"} bg-[black] text-white rounded-[32px] border border-white/10 overflow-hidden flex flex-col transition-all duration-300`}>
         
         {/* Call Top Bar */}
         <div className="absolute top-0 left-0 right-0 p-6 bg-gradient-to-b from-black/80 to-transparent z-20 flex items-center justify-between">
@@ -68,10 +68,10 @@ export const LiveCallModal: React.FC = () => {
 
           <div className="flex items-center gap-4">
             {/* Live Earnings Timer Pill */}
-            <div className="bg-[#081121]/90 backdrop-blur-md border border-[#D4AF37]/40 px-4 py-1.5 rounded-full flex items-center gap-2 text-xs font-mono shadow-lg">
-              <DollarSign className="w-3.5 h-3.5 text-[#D4AF37]" />
+            <div className="bg-[#09090b]/90 backdrop-blur-md border border-[white]/40 px-4 py-1.5 rounded-full flex items-center gap-2 text-xs font-mono shadow-lg">
+              <DollarSign className="w-3.5 h-3.5 text-[white]" />
               <span className="text-white/60">Session Value:</span>
-              <span className="text-[#D4AF37] font-bold">${currentEarnings}</span>
+              <span className="text-[white] font-bold">${currentEarnings}</span>
               <span className="text-[10px] text-green-400">({teacherPayout} Tutor)</span>
             </div>
 
@@ -92,7 +92,7 @@ export const LiveCallModal: React.FC = () => {
               className="absolute inset-0 bg-cover bg-center"
               style={{ backgroundImage: `url('${t.avatarUrl}')` }}
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050B18] via-transparent to-black/30"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-[black] via-transparent to-black/30"></div>
             </div>
           ) : isScreenSharing ? (
             <div className="text-center space-y-3 p-8">
@@ -102,7 +102,7 @@ export const LiveCallModal: React.FC = () => {
             </div>
           ) : (
             <div className="text-center space-y-4">
-              <div className="w-32 h-32 rounded-full border-4 border-[#D4AF37] mx-auto overflow-hidden shadow-2xl relative animate-pulse">
+              <div className="w-32 h-32 rounded-full border-4 border-[white] mx-auto overflow-hidden shadow-2xl relative animate-pulse">
                 <img src={t.avatarUrl} alt={t.fullName} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-3xl font-bold">{t.fullName} {t.countryFlag}</h3>
@@ -112,7 +112,7 @@ export const LiveCallModal: React.FC = () => {
 
           {/* Student Self-View Mini Cam */}
           {isVideo && !isPiP && (
-            <div className="absolute bottom-6 right-6 w-44 h-28 bg-[#081121] rounded-2xl border-2 border-white/20 overflow-hidden shadow-2xl z-30">
+            <div className="absolute bottom-6 right-6 w-44 h-28 bg-[#09090b] rounded-2xl border-2 border-white/20 overflow-hidden shadow-2xl z-30">
               <img src={currentUser.avatarUrl} alt="Self" className="w-full h-full object-cover opacity-80" />
               <div className="absolute bottom-1 left-2 text-[10px] bg-black/60 px-1.5 py-0.5 rounded">You</div>
             </div>
@@ -120,8 +120,8 @@ export const LiveCallModal: React.FC = () => {
 
           {/* Live AI Automatic Subtitles Stream */}
           {!isPiP && (
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 max-w-2xl w-[90%] bg-black/80 backdrop-blur-md border border-[#D4AF37]/30 px-6 py-3 rounded-2xl text-center shadow-2xl">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-[#D4AF37] block mb-1 flex items-center justify-center gap-1">
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30 max-w-2xl w-[90%] bg-black/80 backdrop-blur-md border border-[white]/30 px-6 py-3 rounded-2xl text-center shadow-2xl">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-[white] block mb-1 flex items-center justify-center gap-1">
                 <Sparkles className="w-3 h-3" /> Live AI Speech-to-Text Subtitles Stream
               </span>
               <p className="text-sm md:text-base font-light italic text-white/95">
@@ -133,7 +133,7 @@ export const LiveCallModal: React.FC = () => {
 
         {/* Call Controls Footer */}
         {!isPiP && (
-          <div className="p-6 bg-[#081121] border-t border-white/10 flex items-center justify-center gap-6 z-20">
+          <div className="p-6 bg-[#09090b] border-t border-white/10 flex items-center justify-center gap-6 z-20">
             <button 
               onClick={() => setIsMuted(!isMuted)}
               className={`p-4 rounded-2xl transition-all ${isMuted ? "bg-red-500 text-white shadow-lg shadow-red-500/30" : "bg-white/10 hover:bg-white/20 text-white"}`}

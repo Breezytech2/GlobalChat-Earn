@@ -9,7 +9,7 @@ export const EarningsView: React.FC = () => {
   const isTeacher = currentUser.role === "teacher";
   
   return (
-    <div className="flex-1 bg-[#050B18] text-white p-6 md:p-8 overflow-y-auto w-full h-full select-none">
+    <div className="flex-1 bg-[black] text-white p-6 md:p-8 overflow-y-auto w-full h-full select-none">
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="border-b border-white/10 pb-6">
           <h2 className="text-3xl font-bold tracking-tight mb-1">💰 Earnings & Wallet</h2>
@@ -19,9 +19,9 @@ export const EarningsView: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Balance Card */}
           <div className="bg-gradient-to-br from-[#112240] to-[#0A192F] p-8 rounded-[32px] border border-white/10 shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4AF37]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[white]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
             
-            <h4 className="text-xs uppercase tracking-widest text-[#D4AF37] font-bold mb-4">Available Balance</h4>
+            <h4 className="text-xs uppercase tracking-widest text-[white] font-bold mb-4">Available Balance</h4>
             <div className="flex items-end gap-4 mb-8">
               <span className="text-6xl font-bold tracking-tighter">${currentUser.walletBalance.toFixed(2)}</span>
               <span className="text-sm text-white/50 mb-2 font-mono">USD</span>
@@ -34,12 +34,12 @@ export const EarningsView: React.FC = () => {
                     type="number" 
                     value={addAmount} 
                     onChange={(e) => setAddAmount(Number(e.target.value))}
-                    className="bg-[#050B18] border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] w-32"
+                    className="bg-[black] border border-white/20 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] w-32"
                     min="10"
                   />
                   <button 
                     onClick={() => addFunds(addAmount)}
-                    className="flex-1 px-6 py-3 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] font-bold rounded-xl shadow-lg transition-all"
+                    className="flex-1 px-6 py-3 bg-[white] hover:bg-[#e4e4e7] text-[black] font-bold rounded-xl shadow-lg transition-all"
                   >
                     Add Funds (Stripe Checkout)
                   </button>
@@ -55,7 +55,7 @@ export const EarningsView: React.FC = () => {
 
           {/* Security & Info */}
           <div className="space-y-4">
-            <div className="bg-[#081121] p-6 rounded-[24px] border border-white/5 space-y-4">
+            <div className="bg-[#09090b] p-6 rounded-[24px] border border-white/5 space-y-4">
               <div className="flex gap-4 items-start">
                 <div className="p-3 bg-green-500/10 rounded-xl text-green-400 border border-green-500/20">
                   <ShieldCheck className="w-6 h-6" />
@@ -67,7 +67,7 @@ export const EarningsView: React.FC = () => {
               </div>
             </div>
             
-            <div className="bg-[#081121] p-6 rounded-[24px] border border-white/5 space-y-4">
+            <div className="bg-[#09090b] p-6 rounded-[24px] border border-white/5 space-y-4">
               <div className="flex gap-4 items-start">
                 <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400 border border-blue-500/20">
                   <Lock className="w-6 h-6" />
@@ -82,10 +82,10 @@ export const EarningsView: React.FC = () => {
         </div>
 
         {/* Transaction History */}
-        <div className="bg-[#0A1629] rounded-[32px] border border-white/5 p-6 md:p-8">
+        <div className="bg-[#18181b] rounded-[32px] border border-white/5 p-6 md:p-8">
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-bold flex items-center gap-2">
-              <Activity className="w-5 h-5 text-[#D4AF37]" /> Transaction History
+              <Activity className="w-5 h-5 text-[white]" /> Transaction History
             </h3>
           </div>
 
@@ -96,7 +96,7 @@ export const EarningsView: React.FC = () => {
               bookings.map((b) => (
                 <div key={b.id} className="flex items-center justify-between p-4 bg-white/5 rounded-xl border border-white/5">
                   <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-[#D4AF37]/10 flex items-center justify-center text-[#D4AF37] border border-[#D4AF37]/20">
+                    <div className="w-10 h-10 rounded-full bg-[white]/10 flex items-center justify-center text-[white] border border-[white]/20">
                       <ArrowUpRight className="w-5 h-5" />
                     </div>
                     <div>

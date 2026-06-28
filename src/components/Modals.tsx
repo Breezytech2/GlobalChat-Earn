@@ -47,7 +47,7 @@ export const AuthModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="w-full max-w-md bg-[#081121] rounded-[32px] border border-white/10 p-8 relative shadow-2xl">
+      <div className="w-full max-w-md bg-[#09090b] rounded-[32px] border border-white/10 p-8 relative shadow-2xl">
         <button 
           onClick={() => setIsAuthModalOpen(false)}
           className="absolute top-6 right-6 text-white/50 hover:text-white"
@@ -56,11 +56,11 @@ export const AuthModal: React.FC = () => {
         </button>
 
         <div className="text-center space-y-2 mb-8">
-          <div className="w-16 h-16 bg-gradient-to-tr from-[#D4AF37] to-[#F9E29C] rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-[#D4AF37]/20 mb-4">
-            <span className="text-[#050B18] font-bold text-2xl">G</span>
+          <div className="w-16 h-16 bg-gradient-to-tr from-[white] to-[#e4e4e7] rounded-2xl mx-auto flex items-center justify-center shadow-lg shadow-[white]/20 mb-4">
+            <span className="text-[black] font-bold text-2xl">G</span>
           </div>
           <h3 className="text-2xl font-bold">Welcome to GlobalChat</h3>
-          <p className="text-xs text-white/50">Current Role Profile: <span className="text-[#D4AF37] font-bold uppercase">{currentUser.role}</span></p>
+          <p className="text-xs text-white/50">Current Role Profile: <span className="text-[white] font-bold uppercase">{currentUser.role}</span></p>
           {isRealUser && <p className="text-sm font-bold text-green-400 mt-2">Logged in as: {currentUser.email}</p>}
         </div>
 
@@ -73,19 +73,19 @@ export const AuthModal: React.FC = () => {
                   placeholder="Email address"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-[#050B18] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37]"
+                  className="w-full bg-[black] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white]"
                 />
                 <input 
                   type="password" 
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-[#050B18] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37]"
+                  className="w-full bg-[black] border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white]"
                 />
                 <button 
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] font-bold rounded-xl transition-all text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-3 bg-[white] hover:bg-[#e4e4e7] text-[black] font-bold rounded-xl transition-all text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {loading ? "Please wait..." : (isLoginMode ? "Sign In" : "Create Account")}
                 </button>
@@ -146,7 +146,7 @@ export const PremiumModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-      <div className="w-full max-w-md bg-gradient-to-br from-[#112240] to-[#0A192F] rounded-[32px] border border-[#D4AF37]/30 p-8 relative shadow-2xl shadow-[#D4AF37]/20 text-center">
+      <div className="w-full max-w-md bg-gradient-to-br from-[#112240] to-[#0A192F] rounded-[32px] border border-[white]/30 p-8 relative shadow-2xl shadow-[white]/20 text-center">
         <button 
           onClick={() => setIsPremiumModalOpen(false)}
           className="absolute top-6 right-6 text-white/50 hover:text-white"
@@ -154,8 +154,8 @@ export const PremiumModal: React.FC = () => {
           <X className="w-5 h-5" />
         </button>
 
-        <Sparkles className="w-12 h-12 text-[#D4AF37] mx-auto mb-4" />
-        <h3 className="text-3xl font-bold mb-2 text-[#D4AF37]">Global Premium</h3>
+        <Sparkles className="w-12 h-12 text-[white] mx-auto mb-4" />
+        <h3 className="text-3xl font-bold mb-2 text-[white]">Global Premium</h3>
         <p className="text-white/80 text-sm mb-6">Unlock the ultimate cultural exchange experience.</p>
 
         <div className="text-left space-y-4 bg-black/30 p-6 rounded-2xl border border-white/10 mb-8">
@@ -179,7 +179,7 @@ export const PremiumModal: React.FC = () => {
 
         <button 
           onClick={upgradeToPremium}
-          className="w-full py-4 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] font-bold rounded-xl shadow-xl transition-all"
+          className="w-full py-4 bg-[white] hover:bg-[#e4e4e7] text-[black] font-bold rounded-xl shadow-xl transition-all"
         >
           Upgrade Now for $9.99/mo
         </button>

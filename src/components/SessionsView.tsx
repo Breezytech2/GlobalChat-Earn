@@ -8,7 +8,7 @@ export const SessionsView: React.FC = () => {
   const isTeacher = currentUser.role === "teacher";
 
   return (
-    <div className="flex-1 bg-[#050B18] text-white p-6 md:p-8 overflow-y-auto w-full h-full select-none">
+    <div className="flex-1 bg-[black] text-white p-6 md:p-8 overflow-y-auto w-full h-full select-none">
       <div className="max-w-5xl mx-auto space-y-8">
         <div className="flex items-center justify-between border-b border-white/10 pb-6">
           <div>
@@ -17,14 +17,14 @@ export const SessionsView: React.FC = () => {
           </div>
           <button 
             onClick={() => setActiveTab("discovery")}
-            className="px-5 py-2 bg-[#D4AF37] text-[#050B18] font-bold rounded-xl text-xs hover:bg-[#F9E29C] transition-colors"
+            className="px-5 py-2 bg-[white] text-[black] font-bold rounded-xl text-xs hover:bg-[#e4e4e7] transition-colors"
           >
             Find Tutors
           </button>
         </div>
 
         {bookings.length === 0 ? (
-          <div className="bg-[#081121] rounded-[32px] border border-white/10 p-12 text-center">
+          <div className="bg-[#09090b] rounded-[32px] border border-white/10 p-12 text-center">
             <Calendar className="w-16 h-16 text-white/20 mx-auto mb-4" />
             <h3 className="text-xl font-bold mb-2">No Active Sessions</h3>
             <p className="text-white/60 text-sm mb-6">You don't have any upcoming or past bookings.</p>
@@ -59,7 +59,7 @@ export const SessionsView: React.FC = () => {
               };
 
               return (
-                <div key={b.id} className={`bg-[#0A1629] p-6 rounded-2xl border ${isPast ? "border-white/5 opacity-80" : "border-white/10 hover:border-[#D4AF37]/50 shadow-lg"} flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all`}>
+                <div key={b.id} className={`bg-[#18181b] p-6 rounded-2xl border ${isPast ? "border-white/5 opacity-80" : "border-white/10 hover:border-[white]/50 shadow-lg"} flex flex-col md:flex-row md:items-center justify-between gap-6 transition-all`}>
                   <div className="flex items-center gap-4">
                     <img src={otherPersonAvatar} alt={otherPersonName} className="w-14 h-14 rounded-2xl object-cover border border-white/10" />
                     <div>
@@ -79,7 +79,7 @@ export const SessionsView: React.FC = () => {
                       <span className={`text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded-md ${b.status === "scheduled" ? "bg-blue-500/20 text-blue-400" : b.status === "active" ? "bg-green-500/20 text-green-400 animate-pulse" : "bg-white/10 text-white/60"}`}>
                         {b.status}
                       </span>
-                      <p className="text-xs font-bold text-[#D4AF37] mt-2">
+                      <p className="text-xs font-bold text-[white] mt-2">
                         {isTeacher ? `Earns: $${b.teacherPayout}` : `Cost: $${b.totalPrice}`}
                       </p>
                     </div>
@@ -87,7 +87,7 @@ export const SessionsView: React.FC = () => {
                     {!isPast && !isTeacher && (
                       <button 
                         onClick={handleJoin}
-                        className="px-5 py-2 bg-[#D4AF37] text-[#050B18] font-bold rounded-xl text-xs flex items-center gap-2 hover:bg-[#F9E29C] transition-all"
+                        className="px-5 py-2 bg-[white] text-[black] font-bold rounded-xl text-xs flex items-center gap-2 hover:bg-[#e4e4e7] transition-all"
                       >
                         Join Session <ArrowRight className="w-4 h-4" />
                       </button>

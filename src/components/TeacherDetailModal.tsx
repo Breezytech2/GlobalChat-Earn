@@ -27,11 +27,11 @@ export const TeacherDetailModal: React.FC = () => {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 overflow-y-auto select-none">
-      <div className="relative w-full max-w-4xl bg-[#081121] text-white rounded-[32px] border border-white/10 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="relative w-full max-w-4xl bg-[#09090b] text-white rounded-[32px] border border-white/10 shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
         {/* Top bar */}
-        <div className="flex items-center justify-between px-8 py-5 bg-[#0A1629] border-b border-white/10 flex-shrink-0">
+        <div className="flex items-center justify-between px-8 py-5 bg-[#18181b] border-b border-white/10 flex-shrink-0">
           <div className="flex items-center gap-2">
-            <span className="text-xs uppercase font-mono tracking-widest text-[#D4AF37] font-bold">Government Verified Identity</span>
+            <span className="text-xs uppercase font-mono tracking-widest text-[white] font-bold">Government Verified Identity</span>
             <CheckCircle className="w-4 h-4 text-green-400" />
           </div>
           <button 
@@ -46,7 +46,7 @@ export const TeacherDetailModal: React.FC = () => {
         <div className="flex-1 overflow-y-auto p-8 space-y-8 text-xs md:text-sm">
           {/* Header Info Banner */}
           <div className="flex flex-col md:flex-row gap-6 items-start">
-            <img src={t.avatarUrl} alt={t.fullName} className="w-32 h-32 md:w-40 md:h-40 rounded-3xl object-cover border-2 border-[#D4AF37]/50 shadow-2xl flex-shrink-0" />
+            <img src={t.avatarUrl} alt={t.fullName} className="w-32 h-32 md:w-40 md:h-40 rounded-3xl object-cover border-2 border-[white]/50 shadow-2xl flex-shrink-0" />
             <div className="flex-1 space-y-3">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
@@ -54,11 +54,11 @@ export const TeacherDetailModal: React.FC = () => {
                     {t.fullName} {t.countryFlag}
                   </h3>
                   <p className="text-white/70 italic mt-0.5 font-light">
-                    {t.city}, {t.country} • Native Language: <span className="text-[#D4AF37] font-semibold">{t.nativeLanguage}</span>
+                    {t.city}, {t.country} • Native Language: <span className="text-[white] font-semibold">{t.nativeLanguage}</span>
                   </p>
                 </div>
                 <div className="flex gap-2">
-                  <span className="px-3 py-1 bg-[#D4AF37]/20 border border-[#D4AF37] text-[#D4AF37] rounded-full text-xs font-bold">
+                  <span className="px-3 py-1 bg-[white]/20 border border-[white] text-[white] rounded-full text-xs font-bold">
                     {t.level}
                   </span>
                 </div>
@@ -74,7 +74,7 @@ export const TeacherDetailModal: React.FC = () => {
               </div>
 
               {/* Stats Bar */}
-              <div className="grid grid-cols-4 gap-4 bg-[#0A1629] p-4 rounded-2xl border border-white/5 mt-4 text-center">
+              <div className="grid grid-cols-4 gap-4 bg-[#18181b] p-4 rounded-2xl border border-white/5 mt-4 text-center">
                 <div>
                   <span className="text-[10px] text-white/40 uppercase block font-bold">Rating</span>
                   <span className="text-sm font-bold text-yellow-400">★ {t.rating}</span>
@@ -99,15 +99,15 @@ export const TeacherDetailModal: React.FC = () => {
           {!isBooking ? (
             <>
               {/* Biography */}
-              <div className="bg-[#0A1629]/50 p-6 rounded-2xl border border-white/5 space-y-2">
-                <h4 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37]">📖 Biography & Vision</h4>
+              <div className="bg-[#18181b]/50 p-6 rounded-2xl border border-white/5 space-y-2">
+                <h4 className="text-xs uppercase tracking-widest font-bold text-[white]">📖 Biography & Vision</h4>
                 <p className="text-white/80 leading-relaxed font-light">{t.bio}</p>
               </div>
 
               {/* Cultural Expertise & Interests */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-[#0A1629] p-5 rounded-2xl border border-white/5 space-y-3">
-                  <h4 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37]">🏺 Cultural Expertise</h4>
+                <div className="bg-[#18181b] p-5 rounded-2xl border border-white/5 space-y-3">
+                  <h4 className="text-xs uppercase tracking-widest font-bold text-[white]">🏺 Cultural Expertise</h4>
                   <div className="flex flex-wrap gap-2">
                     {t.culturalExpertise.map((ex, i) => (
                       <span key={i} className="px-3 py-1.5 bg-blue-500/10 text-blue-300 border border-blue-500/20 rounded-xl text-xs">
@@ -117,8 +117,8 @@ export const TeacherDetailModal: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="bg-[#0A1629] p-5 rounded-2xl border border-white/5 space-y-3">
-                  <h4 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37]">💡 Personal Interests</h4>
+                <div className="bg-[#18181b] p-5 rounded-2xl border border-white/5 space-y-3">
+                  <h4 className="text-xs uppercase tracking-widest font-bold text-[white]">💡 Personal Interests</h4>
                   <div className="flex flex-wrap gap-2">
                     {t.interests.map((int, i) => (
                       <span key={i} className="px-3 py-1.5 bg-purple-500/10 text-purple-300 border border-purple-500/20 rounded-xl text-xs">
@@ -131,8 +131,8 @@ export const TeacherDetailModal: React.FC = () => {
 
               {/* Uploaded Learning Resources */}
               {t.resources && t.resources.length > 0 && (
-                <div className="bg-[#0A1629] p-6 rounded-2xl border border-white/10 space-y-4">
-                  <h4 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37] flex items-center gap-2">
+                <div className="bg-[#18181b] p-6 rounded-2xl border border-white/10 space-y-4">
+                  <h4 className="text-xs uppercase tracking-widest font-bold text-[white] flex items-center gap-2">
                     <BookOpen className="w-4 h-4" /> Cultural Survival Guides & PDF Handouts
                   </h4>
                   <div className="space-y-3">
@@ -144,7 +144,7 @@ export const TeacherDetailModal: React.FC = () => {
                         </div>
                         <button 
                           onClick={() => alert(`Downloading ${res.title} via Firebase Storage CDN...`)}
-                          className="px-4 py-2 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] font-bold rounded-xl text-xs flex items-center gap-1.5 transition-all flex-shrink-0"
+                          className="px-4 py-2 bg-[white] hover:bg-[#e4e4e7] text-[black] font-bold rounded-xl text-xs flex items-center gap-1.5 transition-all flex-shrink-0"
                         >
                           <Download className="w-3.5 h-3.5" /> PDF ({res.downloadsCount})
                         </button>
@@ -156,12 +156,12 @@ export const TeacherDetailModal: React.FC = () => {
 
               {/* Student Reviews */}
               <div className="space-y-4">
-                <h4 className="text-xs uppercase tracking-widest font-bold text-[#D4AF37]">💬 Student Feedback & Ratings</h4>
+                <h4 className="text-xs uppercase tracking-widest font-bold text-[white]">💬 Student Feedback & Ratings</h4>
                 {t.reviews.length === 0 ? (
                   <p className="text-white/50 italic text-xs">No public reviews indexed for this profile yet.</p>
                 ) : (
                   t.reviews.map(rev => (
-                    <div key={rev.id} className="bg-[#0A1629] p-5 rounded-2xl border border-white/5 space-y-3">
+                    <div key={rev.id} className="bg-[#18181b] p-5 rounded-2xl border border-white/5 space-y-3">
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2.5">
                           <img src={rev.studentAvatar} alt={rev.studentName} className="w-8 h-8 rounded-full object-cover" />
@@ -174,8 +174,8 @@ export const TeacherDetailModal: React.FC = () => {
                       </div>
                       <p className="text-white/80 text-xs italic">"{rev.comment}"</p>
                       {rev.teacherResponse && (
-                        <div className="pl-4 border-l-2 border-[#D4AF37] bg-white/[0.02] py-2 px-3 rounded-r-lg text-xs mt-2">
-                          <span className="text-[10px] text-[#D4AF37] font-bold block mb-0.5">Tutor Response:</span>
+                        <div className="pl-4 border-l-2 border-[white] bg-white/[0.02] py-2 px-3 rounded-r-lg text-xs mt-2">
+                          <span className="text-[10px] text-[white] font-bold block mb-0.5">Tutor Response:</span>
                           <p className="text-white/70 italic">{rev.teacherResponse}</p>
                         </div>
                       )}
@@ -186,10 +186,10 @@ export const TeacherDetailModal: React.FC = () => {
             </>
           ) : (
             /* Booking Interface */
-            <div className="bg-[#0A1629] p-8 rounded-[32px] border border-[#D4AF37]/30 shadow-2xl space-y-8">
+            <div className="bg-[#18181b] p-8 rounded-[32px] border border-[white]/30 shadow-2xl space-y-8">
               <div>
                 <h3 className="text-2xl font-bold flex items-center gap-2 mb-2">
-                  <CalIcon className="w-6 h-6 text-[#D4AF37]" /> Schedule Session
+                  <CalIcon className="w-6 h-6 text-[white]" /> Schedule Session
                 </h3>
                 <p className="text-white/50 text-xs">Select your preferred date and time. Times are shown in your local timezone.</p>
               </div>
@@ -201,7 +201,7 @@ export const TeacherDetailModal: React.FC = () => {
                     type="date" 
                     value={selectedDate}
                     onChange={(e) => setSelectedDate(e.target.value)}
-                    className="w-full bg-[#050B18] border border-white/10 p-4 rounded-xl focus:border-[#D4AF37] outline-none text-sm"
+                    className="w-full bg-[black] border border-white/10 p-4 rounded-xl focus:border-[white] outline-none text-sm"
                     min={new Date().toISOString().split('T')[0]}
                   />
                 </div>
@@ -213,7 +213,7 @@ export const TeacherDetailModal: React.FC = () => {
                       <button 
                         key={time}
                         onClick={() => setSelectedTime(time)}
-                        className={`py-3 rounded-xl border text-xs font-bold transition-all ${selectedTime === time ? "bg-[#D4AF37] text-black border-[#D4AF37]" : "bg-white/5 border-white/10 hover:border-[#D4AF37]/50"}`}
+                        className={`py-3 rounded-xl border text-xs font-bold transition-all ${selectedTime === time ? "bg-[white] text-black border-[white]" : "bg-white/5 border-white/10 hover:border-[white]/50"}`}
                       >
                         {time}
                       </button>
@@ -231,11 +231,11 @@ export const TeacherDetailModal: React.FC = () => {
         </div>
 
         {/* Footer Action Bar */}
-        <div className="p-6 bg-[#0A1629] border-t border-white/10 flex flex-wrap items-center justify-between gap-4 flex-shrink-0">
+        <div className="p-6 bg-[#18181b] border-t border-white/10 flex flex-wrap items-center justify-between gap-4 flex-shrink-0">
           <div className="flex items-center gap-4">
             <div className="text-xs">
               <span className="text-white/40 block">Commission Free for Students</span>
-              <span className="font-bold text-[#D4AF37]">85% Direct Teacher Allocation</span>
+              <span className="font-bold text-[white]">85% Direct Teacher Allocation</span>
             </div>
           </div>
           
@@ -256,7 +256,7 @@ export const TeacherDetailModal: React.FC = () => {
                 </button>
                 <button 
                   onClick={() => { setIsBooking(true); setBookingType("video_call"); }}
-                  className="px-6 py-3 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] font-bold rounded-xl shadow-xl flex items-center gap-2 transition-all text-xs"
+                  className="px-6 py-3 bg-[white] hover:bg-[#e4e4e7] text-[black] font-bold rounded-xl shadow-xl flex items-center gap-2 transition-all text-xs"
                 >
                   <CalIcon className="w-4 h-4" /> Schedule HD Video ($10/hr)
                 </button>

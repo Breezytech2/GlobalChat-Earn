@@ -35,7 +35,7 @@ export const AdminDashboard: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 bg-[#050B18] text-white p-6 md:p-8 overflow-y-auto w-full h-full select-none">
+    <div className="flex-1 bg-[black] text-white p-6 md:p-8 overflow-y-auto w-full h-full select-none">
       <div className="max-w-7xl mx-auto space-y-8">
         <div className="border-b border-white/10 pb-6 flex justify-between items-end">
           <div>
@@ -53,7 +53,7 @@ export const AdminDashboard: React.FC = () => {
             </button>
             <button 
               onClick={() => setActiveAdminTab("settings")}
-              className={`px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 ${activeAdminTab === 'settings' ? 'bg-[#D4AF37] text-[#050B18] shadow-lg shadow-[#D4AF37]/20' : 'bg-white/5 hover:bg-white/10 text-white/70'}`}
+              className={`px-6 py-2 rounded-xl text-sm font-bold transition-all flex items-center gap-2 ${activeAdminTab === 'settings' ? 'bg-[white] text-[black] shadow-lg shadow-[white]/20' : 'bg-white/5 hover:bg-white/10 text-white/70'}`}
             >
               <Settings className="w-4 h-4" /> Payment Settings
             </button>
@@ -64,7 +64,7 @@ export const AdminDashboard: React.FC = () => {
           <>
             {/* Global Analytics */}
             <div>
-              <h3 className="text-sm uppercase tracking-widest font-bold text-[#D4AF37] mb-4">Platform Analytics (Last 30 Days)</h3>
+              <h3 className="text-sm uppercase tracking-widest font-bold text-[white] mb-4">Platform Analytics (Last 30 Days)</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 <StatCard title="Total Platform Revenue" value={`$${analytics.totalRevenueUSD.toLocaleString()}`} icon={<DollarSign />} highlight />
                 <StatCard title={`Company Commission (${adminSettings.commissionPercentage}%)`} value={`$${analytics.platformEarningsUSD.toLocaleString()}`} icon={<TrendingUp />} />
@@ -72,9 +72,9 @@ export const AdminDashboard: React.FC = () => {
                 <StatCard title="Monthly Active Users" value={analytics.monthlyActiveUsers.toLocaleString()} icon={<Activity />} />
               </div>
 
-              <div className="mt-8 bg-[#0A1629] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl">
+              <div className="mt-8 bg-[#18181b] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
-                  <TrendingUp className="w-5 h-5 text-[#D4AF37]" /> Monthly Revenue & Commission
+                  <TrendingUp className="w-5 h-5 text-[white]" /> Monthly Revenue & Commission
                 </h3>
                 <div className="h-[300px] w-full">
                   <ResponsiveContainer width="100%" height="100%">
@@ -83,11 +83,11 @@ export const AdminDashboard: React.FC = () => {
                       <XAxis dataKey="name" stroke="#ffffff50" tick={{fill: '#ffffff50', fontSize: 12}} />
                       <YAxis stroke="#ffffff50" tick={{fill: '#ffffff50', fontSize: 12}} tickFormatter={(value) => `$${value}`} />
                       <Tooltip 
-                        contentStyle={{ backgroundColor: '#050B18', borderColor: '#ffffff10', borderRadius: '12px' }}
+                        contentStyle={{ backgroundColor: 'black', borderColor: '#ffffff10', borderRadius: '12px' }}
                         itemStyle={{ color: '#fff' }}
                       />
                       <Line type="monotone" dataKey="revenue" name="Total Revenue" stroke="#3b82f6" strokeWidth={3} dot={{r: 4}} activeDot={{r: 6}} />
-                      <Line type="monotone" dataKey="commission" name="Commission" stroke="#D4AF37" strokeWidth={3} dot={{r: 4}} activeDot={{r: 6}} />
+                      <Line type="monotone" dataKey="commission" name="Commission" stroke="white" strokeWidth={3} dot={{r: 4}} activeDot={{r: 6}} />
                     </LineChart>
                   </ResponsiveContainer>
                 </div>
@@ -96,7 +96,7 @@ export const AdminDashboard: React.FC = () => {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Identity Verification Queue */}
-              <div className="bg-[#0A1629] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl">
+              <div className="bg-[#18181b] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                   <Shield className="w-5 h-5 text-blue-400" /> Identity Verification Queue
                 </h3>
@@ -128,7 +128,7 @@ export const AdminDashboard: React.FC = () => {
               </div>
 
               {/* AI Moderation Reports */}
-              <div className="bg-[#0A1629] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl">
+              <div className="bg-[#18181b] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                   <AlertTriangle className="w-5 h-5 text-red-400" /> AI Moderation & Abuse Reports
                 </h3>
@@ -157,7 +157,7 @@ export const AdminDashboard: React.FC = () => {
               </div>
 
               {/* Payout Requests */}
-              <div className="bg-[#0A1629] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl lg:col-span-2">
+              <div className="bg-[#18181b] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl lg:col-span-2">
                 <h3 className="text-lg font-bold mb-6 flex items-center gap-2">
                   <DollarSign className="w-5 h-5 text-green-400" /> Pending Withdrawal Requests
                 </h3>
@@ -177,7 +177,7 @@ export const AdminDashboard: React.FC = () => {
                       {withdrawals.map(w => (
                         <tr key={w.id} className="hover:bg-white/5 transition-colors">
                           <td className="py-4 px-2 font-bold">{w.teacherName}</td>
-                          <td className="py-4 px-2 text-[#D4AF37] font-mono">${w.amount.toFixed(2)}</td>
+                          <td className="py-4 px-2 text-[white] font-mono">${w.amount.toFixed(2)}</td>
                           <td className="py-4 px-2">{w.method}</td>
                           <td className="py-4 px-2 font-mono text-white/60">{w.accountDetails}</td>
                           <td className="py-4 px-2">
@@ -214,9 +214,9 @@ export const AdminDashboard: React.FC = () => {
             </div>
           </>
         ) : (
-          <div className="bg-[#0A1629] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl max-w-4xl">
+          <div className="bg-[#18181b] rounded-[32px] border border-white/10 p-6 md:p-8 shadow-xl max-w-4xl">
             <div className="flex items-center gap-3 mb-8">
-              <Settings className="w-6 h-6 text-[#D4AF37]" />
+              <Settings className="w-6 h-6 text-[white]" />
               <h3 className="text-2xl font-bold">Payment & Commission Settings</h3>
             </div>
 
@@ -230,7 +230,7 @@ export const AdminDashboard: React.FC = () => {
                       type="number"
                       value={formSettings.commissionPercentage}
                       onChange={e => setFormSettings({...formSettings, commissionPercentage: Number(e.target.value)})}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] transition-colors"
                       min="0"
                       max="100"
                       required
@@ -249,7 +249,7 @@ export const AdminDashboard: React.FC = () => {
                       type="text"
                       value={formSettings.mpesaPaybill}
                       onChange={e => setFormSettings({...formSettings, mpesaPaybill: e.target.value})}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] transition-colors"
                       placeholder="e.g. 123456"
                     />
                   </div>
@@ -259,7 +259,7 @@ export const AdminDashboard: React.FC = () => {
                       type="text"
                       value={formSettings.mpesaTill}
                       onChange={e => setFormSettings({...formSettings, mpesaTill: e.target.value})}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] transition-colors"
                       placeholder="e.g. 987654"
                     />
                   </div>
@@ -269,7 +269,7 @@ export const AdminDashboard: React.FC = () => {
                       type="text"
                       value={formSettings.mpesaPhone}
                       onChange={e => setFormSettings({...formSettings, mpesaPhone: e.target.value})}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] transition-colors"
                       placeholder="+254..."
                     />
                   </div>
@@ -279,7 +279,7 @@ export const AdminDashboard: React.FC = () => {
                       type="text"
                       value={formSettings.airtelMoney}
                       onChange={e => setFormSettings({...formSettings, airtelMoney: e.target.value})}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] transition-colors"
                       placeholder="+254..."
                     />
                   </div>
@@ -289,7 +289,7 @@ export const AdminDashboard: React.FC = () => {
                       type="text"
                       value={formSettings.stripeAccount}
                       onChange={e => setFormSettings({...formSettings, stripeAccount: e.target.value})}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] transition-colors"
                       placeholder="acct_..."
                     />
                   </div>
@@ -299,7 +299,7 @@ export const AdminDashboard: React.FC = () => {
                       type="email"
                       value={formSettings.paypalEmail}
                       onChange={e => setFormSettings({...formSettings, paypalEmail: e.target.value})}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors"
+                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] transition-colors"
                       placeholder="admin@example.com"
                     />
                   </div>
@@ -308,7 +308,7 @@ export const AdminDashboard: React.FC = () => {
                     <textarea 
                       value={formSettings.bankDetails}
                       onChange={e => setFormSettings({...formSettings, bankDetails: e.target.value})}
-                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#D4AF37] transition-colors min-h-[80px]"
+                      className="w-full bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[white] transition-colors min-h-[80px]"
                       placeholder="Bank Name, Account Number, SWIFT, etc."
                     ></textarea>
                   </div>
@@ -319,7 +319,7 @@ export const AdminDashboard: React.FC = () => {
                 <button 
                   type="submit"
                   disabled={isSaving}
-                  className="px-8 py-3 bg-[#D4AF37] hover:bg-[#F9E29C] text-[#050B18] font-bold rounded-xl transition-all text-sm flex items-center gap-2 disabled:opacity-50"
+                  className="px-8 py-3 bg-[white] hover:bg-[#e4e4e7] text-[black] font-bold rounded-xl transition-all text-sm flex items-center gap-2 disabled:opacity-50"
                 >
                   {isSaving ? "Saving..." : <><Save className="w-4 h-4" /> Save Settings Securely</>}
                 </button>
@@ -334,13 +334,13 @@ export const AdminDashboard: React.FC = () => {
 };
 
 const StatCard: React.FC<{ title: string; value: string; icon: React.ReactNode; highlight?: boolean }> = ({ title, value, icon, highlight }) => (
-  <div className={`p-6 rounded-[24px] border ${highlight ? "bg-gradient-to-br from-[#112240] to-[#0A192F] border-[#D4AF37]/50 shadow-[#D4AF37]/20" : "bg-[#0A1629] border-white/5"} shadow-xl relative overflow-hidden`}>
+  <div className={`p-6 rounded-[24px] border ${highlight ? "bg-gradient-to-br from-[#112240] to-[#0A192F] border-[white]/50 shadow-[white]/20" : "bg-[#18181b] border-white/5"} shadow-xl relative overflow-hidden`}>
     <div className="flex items-center justify-between mb-4">
       <span className="text-[10px] uppercase font-bold tracking-widest text-white/40">{title}</span>
-      <div className={`p-2 rounded-xl ${highlight ? "bg-[#D4AF37]/20 text-[#D4AF37]" : "bg-white/5 text-white/60"}`}>
+      <div className={`p-2 rounded-xl ${highlight ? "bg-[white]/20 text-[white]" : "bg-white/5 text-white/60"}`}>
         {icon}
       </div>
     </div>
-    <h3 className={`text-2xl lg:text-3xl font-bold tracking-tight ${highlight ? "text-[#D4AF37]" : "text-white"}`}>{value}</h3>
+    <h3 className={`text-2xl lg:text-3xl font-bold tracking-tight ${highlight ? "text-[white]" : "text-white"}`}>{value}</h3>
   </div>
 );
