@@ -11,7 +11,7 @@ import {
 } from "lucide-react";
 
 export const LandingPage: React.FC = () => {
-  const { setActiveTab } = useApp();
+  const { setActiveTab, setIsAuthModalOpen } = useApp();
 
   return (
     <div className="min-h-screen bg-black text-white font-sans overflow-x-hidden selection:bg-zinc-800">
@@ -20,9 +20,11 @@ export const LandingPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
           <div className="flex items-center gap-12">
             <div className="flex items-center gap-2 cursor-pointer">
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
-                <Globe className="w-5 h-5 text-black" />
-              </div>
+              <img
+                src="/favicon.png"
+                alt="GlobalChat"
+                className="w-8 h-8 rounded-lg object-contain bg-white"
+              />
               <span className="text-xl font-bold tracking-tight">
                 GlobalChat
               </span>
@@ -49,13 +51,13 @@ export const LandingPage: React.FC = () => {
 
           <div className="flex items-center gap-4">
             <button
-              onClick={() => setActiveTab("discovery")}
+              onClick={() => setIsAuthModalOpen(true)}
               className="text-sm font-medium text-zinc-300 hover:text-white transition-colors hidden sm:block"
             >
               Log in
             </button>
             <button
-              onClick={() => setActiveTab("discovery")}
+              onClick={() => setIsAuthModalOpen(true)}
               className="px-5 py-2.5 bg-white text-black text-sm font-bold rounded-lg hover:bg-zinc-200 transition-colors"
             >
               Start now
@@ -80,7 +82,7 @@ export const LandingPage: React.FC = () => {
             </p>
             <div className="flex items-center gap-4">
               <button
-                onClick={() => setActiveTab("discovery")}
+                onClick={() => setIsAuthModalOpen(true)}
                 className="px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-zinc-200 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]"
               >
                 Start now
@@ -255,7 +257,8 @@ export const LandingPage: React.FC = () => {
               Expand your horizons globally
             </h2>
             <p className="text-zinc-400 text-lg max-w-2xl">
-              Discover how connecting with global tutors can transform your understanding of different cultures and perspectives.
+              Discover how connecting with global tutors can transform your
+              understanding of different cultures and perspectives.
             </p>
           </div>
 
@@ -270,12 +273,11 @@ export const LandingPage: React.FC = () => {
                   <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center">
                     <Globe className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold">
-                    Immersive Experiences
-                  </h3>
+                  <h3 className="text-xl font-bold">Immersive Experiences</h3>
                 </div>
                 <p className="text-zinc-400 text-sm mb-6 flex-1">
-                  Dive deep into the culture with immersive sessions that bring you closer to native speakers.
+                  Dive deep into the culture with immersive sessions that bring
+                  you closer to native speakers.
                 </p>
                 <div className="flex items-center text-sm font-bold hover:text-zinc-300">
                   See case study <ChevronRight className="w-4 h-4 ml-1" />
@@ -296,7 +298,8 @@ export const LandingPage: React.FC = () => {
                   <h3 className="text-xl font-bold">Safe and Secure</h3>
                 </div>
                 <p className="text-zinc-400 text-sm mb-6 flex-1">
-                  Connect confidently with verified tutors in a moderated and secure platform designed for your safety.
+                  Connect confidently with verified tutors in a moderated and
+                  secure platform designed for your safety.
                 </p>
                 <div className="flex items-center text-sm font-bold hover:text-zinc-300">
                   See case study <ChevronRight className="w-4 h-4 ml-1" />
@@ -314,12 +317,11 @@ export const LandingPage: React.FC = () => {
                   <div className="w-10 h-10 bg-white/5 rounded-lg flex items-center justify-center">
                     <MessageSquare className="w-5 h-5 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold">
-                    Community Driven
-                  </h3>
+                  <h3 className="text-xl font-bold">Community Driven</h3>
                 </div>
                 <p className="text-zinc-400 text-sm mb-6 flex-1">
-                  Join a vibrant community of language learners to practice, share insights, and grow together.
+                  Join a vibrant community of language learners to practice,
+                  share insights, and grow together.
                 </p>
                 <div className="flex items-center text-sm font-bold hover:text-zinc-300">
                   See case study <ChevronRight className="w-4 h-4 ml-1" />
